@@ -2,12 +2,12 @@ function Basket() {
     return (
       
         
-  <section class="basket-container">
+  <section className="basket-container">
     <h2>Your Basket</h2>
     <ul>
       {/* <!-- Basket Item --> */}
       <li>
-        <article class="basket-container__item">
+        <article className="basket-container__item">
           <img
             src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
             alt="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"

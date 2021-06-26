@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard"
 
 
@@ -12,11 +13,18 @@ function ProductPage() {
     []
   );
 
+  const {categoryId} = useParams();
+  console.log(categoryId)
+
+
+  const productsMatchingCategoryId = categoryId ? products.filter((product) => product.categoryId === Number(categoryId)) : products
+  
+
   return (
     <main>
        <section class="products-container main-wrapper">
             <ul class="products-container__list">
-              {products.map((product) => (
+              {productsMatchingCategoryId.map((product) => (
                 <ProductCard productInfo={product} />
               ))}
            </ul>

@@ -20,8 +20,7 @@ function Categories() {
           
             {categories.map((category) => (
               <li>
-              <Link key={category.name} style="--random-colour: var(--yellow);" to={`/categories/${category.id}`}
-              style={{ ["--border-colour"]: `var(--${randColour()})` }}
+              <Link to={`/categories/${category.id}`} key={category.name} style={{ ['--random-colour']: `var(--${randColour()})` }}  to={`/categories/${category.id}`}
               >{category.name}</Link>
               </li>
             ))}
