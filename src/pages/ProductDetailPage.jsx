@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 
-function ProductDetailPage() {
-   const [product, setProduct] = useState(null)
 
+
+function ProductDetailPage({addItemToTheBasket}) {
+   const [product, setProduct] = useState(null)
+   
    const {id} = useParams()
 
    useEffect(() => {
@@ -50,7 +52,7 @@ function ProductDetailPage() {
             </p>
             <p>{product.price}</p>
      
-             <button>Add to basket</button>
+             <button onClick={() => addItemToTheBasket(product)} >Add to basket</button>
           </div>
         </section>
       </main>

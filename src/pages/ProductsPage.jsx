@@ -5,27 +5,27 @@ import ProductCard from "../components/ProductCard"
 
 function ProductPage() {
   const [products, setProducts] = useState([])
+  
 
-  useEffect(() =>
-      fetch("http://localhost:4000/products")
+  useEffect(() => {
+    fetch("http://localhost:4000/products")
         .then((resp) => resp.json())
-        .then((products) => setProducts(products)),
-    []
+        .then((products) => setProducts(products))
+  },[]
   );
 
   const {categoryId} = useParams();
-  console.log(categoryId)
-
+  
 
   const productsMatchingCategoryId = categoryId ? products.filter((product) => product.categoryId === Number(categoryId)) : products
   
 
   return (
     <main>
-       <section class="products-container main-wrapper">
-            <ul class="products-container__list">
-              {productsMatchingCategoryId.map((product) => (
-                <ProductCard productInfo={product} />
+       <section className="products-container main-wrapper">
+            <ul className="products-container__list">
+              {productsMatchingCategoryId.map((product, index) => (
+                <ProductCard key={index} productInfo={product} />
               ))}
            </ul>
       </section>
